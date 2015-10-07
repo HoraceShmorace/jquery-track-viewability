@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title></title>
+        <style type="text/css">
+            body {
+                background-color: #f44;
+                height: 4000px;
+                width: 4000px;
+            }
+            #coords {
+                position:fixed
+            }
+            #mock-ad {
+                position: absolute;
+                top: 120%;
+                left: 200%;
+                width: 300px;
+                height: 600px;
+                background: none repeat scroll 0 0 #fff;
+                border: 5px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="coords">Scroll at least 50% of the off-screen box into view.</div>
+        <div id="mock-ad"></div>
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="jquery-track-viewable.js"></script>
+        <script>
+            /**
+             * Configure options.
+             */
+            var options = {
+                scope: window, // Element that is scrolling.
+                minArea: 50, // Must view 50% of the area.
+                minWidth: 25, // Must view 25% of the width.
+                minHeight: 25 // Must view 25% of the height.
+            };
+
+            /**
+             * Define callback function.
+             */
+            var onCheckIsViewable = function(result) {
+
+                var $e = result.$element,
+                    elementWidth = $e.width(),
+                    elementHeight = $e.height(),
+                    elementArea = elementWidth * elementHeight;
+                $("#coords").html("viewable Width: " + result.viewableWidth + "/" + elementWidth + " (" + result.viewableWidthPercentage + "%)<br>viewable Height: " + result.viewableHeight + "/" + elementHeight + " (" + result.viewableHeightPercentage + "%)<br>viewable Area: " + result.viewableArea + "/" + elementArea + " (" + result.viewableAreaPercentage + "%)");
+
+                if (result.isViewable === true) {
+                    $('body').css("background-color", "rgba(0, 200, 0, .5)");
+                } else {
+                    $('body').css("background-color", "rgba(200, 0, 0, .5)");
+                }
+            };
+
+            /**
+             * Initialize and start tracking
+             */
+            $("#mock-ad").trackViewable(options, onCheckIsViewable);
+        </script>
+    </body>
+</html>
