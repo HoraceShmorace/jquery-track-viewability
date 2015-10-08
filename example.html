@@ -1,35 +1,111 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
         <title></title>
         <style type="text/css">
             body {
                 background-color: #f44;
-                height: 4000px;
-                width: 4000px;
+                margin-bottom: 1000px;
+                margin-top: 100px;
+           }
+            header, aside, #content, footer {
+                border: 5px solid black;
+                margin: 10px;
+                padding: 30px;
+            }
+            aside, #content {
+                flex: auto;
+            }
+            header {
+                text-align: center;
+            }
+            section {
+                display: flex;
+            }
+            aside#left {
+                padding-top: 100px;
+                max-width: 160px;
+            }
+            aside#right {
+                padding-top: 100px;
+                max-width: 300px;
             }
             #coords {
-                position:fixed
+                position:fixed;
             }
-            #mock-ad {
+            #mock-ad-square {
+                width: 300px;
+                height: 250px;
+                background-color: #fff;
+                border: 1px solid rgba(0, 0, 0, .3);
                 position: absolute;
-                top: 120%;
                 left: 200%;
+            }
+            #mock-ad-rectangle {
                 width: 300px;
                 height: 600px;
-                background: none repeat scroll 0 0 #fff;
-                border: 5px solid black;
+                background-color: #fff;
+                border: 1px solid rgba(0, 0, 0, .3);
+            }
+            #mock-ad-skyscraper {
+                width: 160px;
+                height: 600px;
+                background-color: #fff;
+                border: 1px solid rgba(0, 0, 0, .3);
+            }
+            #mock-ad-leaderboard-top,
+            #mock-ad-leaderboard-bottom {
+                width: 728px;
+                height: 90px;
+                background-color: #fff;
+                border: 1px solid rgba(0, 0, 0, .3);
+                margin: 0 auto;
             }
         </style>
     </head>
     <body>
-        <div id="coords">Scroll at least 50% of the off-screen box into view.</div>
-        <div id="mock-ad"></div>
+        <article>
+            <div class="mock-ad" id="mock-ad-square">
+                <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+            </div>
+            <header>
+                <div class="mock-ad" id="mock-ad-leaderboard-top">
+                    <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                </div>
+            </header>
+            <section>
+                <aside id="left">
+                    <div class="mock-ad" id="mock-ad-skyscraper">
+                        <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                    </div>
+                </aside>
+                <div id="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut orci ipsum. Duis in lectus ac ligula maximus consectetur. Duis hendrerit, tellus vitae sagittis convallis, mauris metus ultricies dolor, a iaculis libero odio accumsan dui. Sed porta gravida justo a porttitor. Sed id tristique enim. Vivamus in velit ac augue tempor eleifend sit amet vitae tellus. Donec tristique purus eros, at bibendum est condimentum sed. Vestibulum posuere eget dui id consequat. Maecenas vel risus sed neque tempus consequat. Nam eu posuere tortor. Donec tellus risus, tincidunt vitae nisl nec, lobortis faucibus lectus. Vivamus ex neque, iaculis quis blandit ultricies, interdum in ipsum. Cras sodales mauris ut metus ornare, nec tempor neque iaculis. Integer in lorem eget velit dapibus auctor a nec felis.</p>
+                    <p>Donec aliquam ligula sodales nisi dignissim, sed dignissim diam scelerisque. Quisque sit amet ante risus. Ut lobortis sodales leo, at pharetra nulla. Nullam pharetra diam justo, nec ultrices purus vehicula id. Phasellus mauris mi, accumsan sit amet arcu in, ornare posuere quam. Integer dapibus eleifend pulvinar. Cras cursus tincidunt semper. Phasellus accumsan augue in rutrum mattis. Nulla mattis hendrerit tristique. Duis aliquam diam metus, eget commodo tortor ultrices nec. Aenean nec commodo quam. Proin sem libero, auctor ac lectus at, bibendum ultricies justo. Nam bibendum risus ac porta volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                    <p>Curabitur vestibulum ipsum at placerat interdum. Fusce ultrices suscipit turpis. Cras sed bibendum lorem. Nulla viverra augue fringilla lorem luctus varius. Integer sit amet nulla et eros pretium pulvinar. Maecenas elit lorem, scelerisque quis scelerisque sed, pretium non diam. Vestibulum fringilla congue facilisis. Donec iaculis porttitor ligula eu vulputate. Aenean et metus volutpat, vehicula massa vel, pellentesque justo. Pellentesque in nisl faucibus ante ultricies gravida sit amet iaculis lectus. Proin mi urna, aliquam vel fringilla eu, lacinia id nunc. Phasellus sed sem faucibus, semper justo nec, porta justo. Curabitur et odio lobortis, volutpat urna non, fringilla nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras aliquam dui interdum, finibus nunc quis, fringilla metus.</p>
+                    <p>Integer et tortor in neque porttitor auctor imperdiet et velit. Proin mattis diam mollis pharetra tempor. Aliquam accumsan tincidunt pharetra. Integer vulputate justo et congue lacinia. Quisque quis facilisis elit. In a neque nec massa iaculis posuere ut nec orci. Aliquam euismod porta ante at bibendum.</p>
+                    <p>Mauris pretium metus id convallis fringilla. Fusce ac ipsum luctus, vulputate tellus eget, viverra sapien. Etiam vestibulum ex vitae varius faucibus. Cras pretium neque non quam congue euismod. Integer in pellentesque odio, vel iaculis magna. Nulla ornare purus orci, quis venenatis enim egestas eget. Aliquam erat volutpat. Integer cursus sem vulputate erat imperdiet, lacinia malesuada sapien interdum. Proin felis ipsum, efficitur quis lorem in, egestas accumsan velit. Suspendisse potenti.</p>
+                </div>
+                <aside id="right">
+                    <div class="mock-ad" id="mock-ad-rectangle">
+                        <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                    </div>
+                </aside>
+            </section>
+            <footer>
+                <div class="mock-ad" id="mock-ad-leaderboard-bottom">
+                    <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                </div>
+            </footer>
+        </article>
+        
 
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="jquery-track-viewable.js"></script>
         <script>
             /**
-             * Configure options.
+             * Configure options. We'll use the same for each mock ad, but these could be set differently.
              */
             var options = {
                 scope: window, // Element that is scrolling.
@@ -42,24 +118,24 @@
              * Define callback function.
              */
             var onCheckIsViewable = function(result) {
-
                 var $e = result.$element,
                     elementWidth = $e.width(),
                     elementHeight = $e.height(),
                     elementArea = elementWidth * elementHeight;
-                $("#coords").html("viewable Width: " + result.viewableWidth + "/" + elementWidth + " (" + result.viewableWidthPercentage + "%)<br>viewable Height: " + result.viewableHeight + "/" + elementHeight + " (" + result.viewableHeightPercentage + "%)<br>viewable Area: " + result.viewableArea + "/" + elementArea + " (" + result.viewableAreaPercentage + "%)");
+                
+                $e.find(".coords").html("viewable Width: " + result.viewableWidth + "/" + elementWidth + " (" + result.viewableWidthPercentage + "%)<br>viewable Height: " + result.viewableHeight + "/" + elementHeight + " (" + result.viewableHeightPercentage + "%)<br>viewable Area: " + result.viewableArea + "/" + elementArea + " (" + result.viewableAreaPercentage + "%)");
 
                 if (result.isViewable === true) {
-                    $('body').css("background-color", "rgba(0, 200, 0, .5)");
+                    $e.css("background-color", "rgba(0, 200, 0, .5)");
                 } else {
-                    $('body').css("background-color", "rgba(200, 0, 0, .5)");
+                    $e.css("background-color", "rgba(200, 0, 0, .5)");
                 }
             };
 
             /**
              * Initialize and start tracking
              */
-            $("#mock-ad").trackViewable(options, onCheckIsViewable);
+            $(".mock-ad").trackViewable(options, onCheckIsViewable);
         </script>
     </body>
 </html>
