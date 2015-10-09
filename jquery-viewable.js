@@ -7,6 +7,11 @@ $.fn.viewable = function(next, scope) {
     var VIEW_START_ATTR = "data-view-start",
         VIEWED_ATTR = "data-viewed";
 
+    if (typeof next !== "function") {
+        throw new Error('Whoops! You need to pass a callback.');
+        return;
+    }
+
     if (!scope) scope = window;
 
     $(this).each(function(index, item) {
@@ -42,9 +47,7 @@ $.fn.viewable = function(next, scope) {
                     scope: scope
                 };
 
-                if (typeof next === "function") {
-                    next(result);
-                }
+                next(result);
             }
 
             $(scope).scroll(calculateHowViewable);
