@@ -1,10 +1,7 @@
 /**
  * Calculates how  an HTML element has been viewable, according to the criteria in the options argument.
- * @param {Object} options An object with the following properties:
- *     minArea {Number} The minimum % of visible area to qualify as viewable.
- *     minWidth {Number} The minimum % of visible width to qualify as viewable.
- *     minHeight {Number} The minimum % of visible height to qualify as viewable.
  * @param {Function} next An optional callback function.
+ * @param {jQuery Object || HTMLElement || String} scope The object through which the element is scrolling (usually the window object).
  * @returns {Boolean} Whether the element has been viewable.
  */
 $.fn.viewable = function(next, scope) {
