@@ -21,4 +21,4 @@ $("#my-element").viewable(a_different_callback, scope);
   - **viewableHeight** {*Number*} In pixels
   - **viewableHeightPercentage** {*Number*} Between 0  -100
   - **options** {*Object*} The options object passed in originally.
-- **scope** {*Object*} Optional. A reference to the element that's scrolling. This is experimental, and using anything other than `window` is so far entirely untested. You can safely omit this, and `window` will be used by default.
+- **scope** {*jQuery Object* || *HTMLElement* || *String*} Optional. A reference to the element that's scrolling. This is experimental, and using anything other than `window` is so far entirely untested. You can safely omit this, and `window` will be used by default.
