@@ -7,7 +7,7 @@
  * @param {Function} next An optional callback function.
  * @returns {Boolean} Whether the element has been viewable.
  */
-$.fn.trackViewable = function(next, scope) {
+$.fn.viewable = function(next, scope) {
     var VIEW_START_ATTR = "data-view-start",
         VIEWED_ATTR = "data-viewed";
 
