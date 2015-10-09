@@ -12,7 +12,7 @@ $("#my-element").viewable(a_different_callback, scope);
 ```
 
 ## Arguments
-- **callback** {*Number*} Required. Function to execute for each element. It receives one argument (an Object) with the following properties:
+- **callback** {*Number*} Required. Function to execute for each element. When called, it receives one argument (an Object) with the following properties:
   - **$element** {*jQuery Object*} A reference to the element.
   - **viewableArea** {*Number*} In pixels
   - **viewableAreaPercentage** {*Number*} Between 0  -100
