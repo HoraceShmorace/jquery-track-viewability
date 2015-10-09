@@ -2,13 +2,13 @@
 A simple jquery plugin that tracks how viewable an element is. The passed callback will be called on `window.load`, and every time the `scroll` event of the `window` or other parent element fires, and will be passed an object containing information about the element's viewability.
 
 ## Usage
-**For an individual element:**
+**For an entire class of elements:** (recommended)
+```javascript
+$(".track-viewability").viewable(callback, scope);
+```
+**For an individual element:** For when you need to use a different callback for certain elements.
 ```javascript
 $("#my-element").viewable(callback, scope);
-```
-**For an entire class of elements:**
-```javascript
-$("#.track-viewability").viewable(callback, scope);
 ```
 
 ## Arguments
