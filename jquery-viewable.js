@@ -1,5 +1,5 @@
 /**
- * Calculates how  an HTML element has been viewable, according to the criteria in the options argument.
+ * Measures how viewable an element is in both pixels and percentage.
  * @param {Function} next An optional callback function.
  * @param {jQuery Object || HTMLElement || String} scope The object through which the element is scrolling (usually the window object).
  */
