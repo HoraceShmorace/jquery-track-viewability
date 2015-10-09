@@ -1,31 +1,24 @@
 # jquery-track-viewable
-A simple jquery plugin that tracks how viewable an element is. The passed callback will be called every time the `scroll` event of the window or other parent element fires, and will be passed an object containing information about the element's viewability.
+A simple jquery plugin that tracks how viewable an element is. The passed callback will be called on `window.load`, and every time the `scroll` event of the `window` or other parent element fires, and will be passed an object containing information about the element's viewability.
 
-## Usage:
+## Usage
+**For an individual element:**
 ```javascript
-$("#my-element").trackViewable(options, function(){
-    result.$element.text("I'm in view!");
-});
+$("#my-element").trackViewable(callback, scope);
+```
+**For an entire class of elements:**
+```javascript
+$("#.track-viewability").trackViewable(callback, scope);
 ```
 
-## Options
-Pass in an object setting the following properties.
-- **scope** {*Object*} A reference to the element that's scrolling. This is experimental, and using anything other than `window` is so far entirely untested. You can safely omit this, and `window` will be used by default.
-- **minArea** {*Number*} The minimum % of visible area to qualify as viewable.
-- **minWidth** {*Number*} The minimum % of visible width to qualify as viewable.
-- **minHeight** {*Number*} The minimum % of visible height to qualify as viewable.
-
-## Callback argument
-The callback is passed an object with the following properties:
-- **isViewable** {*Boolean*}
-- **$element** {*jQuery Object*} A reference to the element.
-- **viewableArea** {*Number*} In pixels
-- **viewableAreaPercentage** {*Number*} Between 0-100
-- **viewableWidth** {*Number*} In pixels
-- **viewableWidthPercentage** {*Number*} Between 0-100
-- **viewableHeight** {*Number*} In pixels
-- **viewableHeightPercentage** {*Number*} Between 0-100
-- **options** {*Object*} The options object passed in originally.
-
-## TODO
-- Add document.ready event.
+## Arguments
+- **callback** {*Number*} Required. Function to execute for each element. It receives one argument (an Object) with the following properties:
+  - **$element** {*jQuery Object*} A reference to the element.
+  - **viewableArea** {*Number*} In pixels
+  - **viewableAreaPercentage** {*Number*} Between 0  -100
+  - **viewableWidth** {*Number*} In pixels
+  - **viewableWidthPercentage** {*Number*} Between 0  -100
+  - **viewableHeight** {*Number*} In pixels
+  - **viewableHeightPercentage** {*Number*} Between 0  -100
+  - **options** {*Object*} The options object passed in originally.
+- **scope** {*Object*} Optional. A reference to the element that's scrolling. This is experimental, and using anything other than `window` is so far entirely untested. You can safely omit this, and `window` will be used by default.
