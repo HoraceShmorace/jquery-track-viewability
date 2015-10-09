@@ -8,7 +8,7 @@ $(".track-viewability").viewable(callback, scope);
 ```
 **For an individual element:** For when you need to use a different callback for certain elements.
 ```javascript
-$("#my-element").viewable(callback, scope);
+$("#my-element").viewable(a_different_callback, scope);
 ```
 
 ## Arguments
