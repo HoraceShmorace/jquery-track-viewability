@@ -2,7 +2,6 @@
  * Calculates how  an HTML element has been viewable, according to the criteria in the options argument.
  * @param {Function} next An optional callback function.
  * @param {jQuery Object || HTMLElement || String} scope The object through which the element is scrolling (usually the window object).
- * @returns {Boolean} Whether the element has been viewable.
  */
 $.fn.viewable = function(next, scope) {
     var VIEW_START_ATTR = "data-view-start",
