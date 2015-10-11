@@ -28,3 +28,5 @@ $("#my-element").viewable(false);
   - **viewableHeight** {*Number*} In pixels
   - **viewableHeightPercentage** {*Number*} Between 0  -100
 
+## TODO
+- Add support for tracking viewability when elements scroll within elements other than `window`.
