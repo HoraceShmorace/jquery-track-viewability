@@ -20,13 +20,10 @@ $("#my-element").viewable(false);
 ```
 
 ## Arguments
-- **callback** {*Number*} Required. Function to execute for each element. When called, it receives one argument (an Object) with the following properties:
-  - **$element** {*jQuery Object*} A reference to the element.
+- **next** {*Number* || *false*} Required. Either a callback function to execute for each element, or *false*, which will stop an element from having its viewability tracked. When the callback is called, it receives one argument (an Object) with the following properties:
   - **viewableArea** {*Number*} In pixels
   - **viewableAreaPercentage** {*Number*} Between 0  -100
   - **viewableWidth** {*Number*} In pixels
   - **viewableWidthPercentage** {*Number*} Between 0  -100
   - **viewableHeight** {*Number*} In pixels
   - **viewableHeightPercentage** {*Number*} Between 0  -100
-  - **options** {*Object*} The options object passed in originally.
-- **scope** {*jQuery Object* || *HTMLElement* || *String*} Optional. A reference to the element that's scrolling. This is experimental, and using anything other than `window` is so far entirely untested. You can safely omit this, and `window` will be used by default.
