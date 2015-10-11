@@ -30,3 +30,4 @@ $("#my-element").viewable(false);
 
 ## TODO
 - Add support for tracking viewability when elements scroll within elements other than `window`.
+- Add unit tests.
