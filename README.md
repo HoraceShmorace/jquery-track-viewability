@@ -1,4 +1,4 @@
-# jquery-viewable
+# jquery.viewable
 A simple jquery plugin that measures how viewable an element is. The passed callback will be called on `window.load`, and every time the `scroll` event of the `window` or other parent element fires, and will be passed an object containing information about the element's viewability.
 
 ## Usage
