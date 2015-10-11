@@ -4,11 +4,19 @@ A simple jquery plugin that measures how viewable an element is. The passed call
 ## Usage
 **For an entire class of elements:** (recommended)
 ```javascript
-$(".track-viewability").viewable(callback, scope);
+// Start all
+$(".track-viewability").viewable(callback);
+
+// Stop all
+$(".track-viewability").viewable(false);
 ```
 **For an individual element:** For when you need to use a different callback for certain elements.
 ```javascript
-$("#my-element").viewable(a_different_callback, scope);
+// Start all
+$("#my-element").viewable(a_different_callback);
+
+// Stop all
+$("#my-element").viewable(false);
 ```
 
 ## Arguments

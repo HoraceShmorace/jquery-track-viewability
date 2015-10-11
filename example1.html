@@ -71,21 +71,23 @@
     <body>
         <article>
             <div class="mock-ad" id="mock-ad-square">
-                <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                <div class="coords"></div>
             </div>
             <header>
                 <div class="mock-ad" id="mock-ad-leaderboard-top">
-                    <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                    <div class="coords"></div>
                 </div>
             </header>
-            <h4>There's an ad waaaay over there, too &rarr;</h4>
+            <h4>Scroll the fake ad elements in and out of view, vertically and horizontally. There's an ad waaaay over there, too &rarr;</h4>
             <section>
                 <aside id="left">
                     <div class="mock-ad" id="mock-ad-skyscraper">
-                        <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                        <div class="coords"></div>
                     </div>
                 </aside>
                 <div id="content">
+                    <h2>This implementation displays the viewability measurements (viewable height, width, and area in pixel ratios and percentages) for tracked elements.</h2>
+                    <h3>It defines a viewable element as one for which 50% of the pixels are visible. Elements are green when viewable, and red when not.</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut orci ipsum. Duis in lectus ac ligula maximus consectetur. Duis hendrerit, tellus vitae sagittis convallis, mauris metus ultricies dolor, a iaculis libero odio accumsan dui. Sed porta gravida justo a porttitor. Sed id tristique enim. Vivamus in velit ac augue tempor eleifend sit amet vitae tellus. Donec tristique purus eros, at bibendum est condimentum sed. Vestibulum posuere eget dui id consequat. Maecenas vel risus sed neque tempus consequat. Nam eu posuere tortor. Donec tellus risus, tincidunt vitae nisl nec, lobortis faucibus lectus. Vivamus ex neque, iaculis quis blandit ultricies, interdum in ipsum. Cras sodales mauris ut metus ornare, nec tempor neque iaculis. Integer in lorem eget velit dapibus auctor a nec felis.</p>
                     <p>Donec aliquam ligula sodales nisi dignissim, sed dignissim diam scelerisque. Quisque sit amet ante risus. Ut lobortis sodales leo, at pharetra nulla. Nullam pharetra diam justo, nec ultrices purus vehicula id. Phasellus mauris mi, accumsan sit amet arcu in, ornare posuere quam. Integer dapibus eleifend pulvinar. Cras cursus tincidunt semper. Phasellus accumsan augue in rutrum mattis. Nulla mattis hendrerit tristique. Duis aliquam diam metus, eget commodo tortor ultrices nec. Aenean nec commodo quam. Proin sem libero, auctor ac lectus at, bibendum ultricies justo. Nam bibendum risus ac porta volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                     <p>Curabitur vestibulum ipsum at placerat interdum. Fusce ultrices suscipit turpis. Cras sed bibendum lorem. Nulla viverra augue fringilla lorem luctus varius. Integer sit amet nulla et eros pretium pulvinar. Maecenas elit lorem, scelerisque quis scelerisque sed, pretium non diam. Vestibulum fringilla congue facilisis. Donec iaculis porttitor ligula eu vulputate. Aenean et metus volutpat, vehicula massa vel, pellentesque justo. Pellentesque in nisl faucibus ante ultricies gravida sit amet iaculis lectus. Proin mi urna, aliquam vel fringilla eu, lacinia id nunc. Phasellus sed sem faucibus, semper justo nec, porta justo. Curabitur et odio lobortis, volutpat urna non, fringilla nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras aliquam dui interdum, finibus nunc quis, fringilla metus.</p>
@@ -94,37 +96,35 @@
                 </div>
                 <aside id="right">
                     <div class="mock-ad" id="mock-ad-rectangle">
-                        <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                        <div class="coords"></div>
                     </div>
                 </aside>
             </section>
             <footer>
                 <div class="mock-ad" id="mock-ad-leaderboard-bottom">
-                    <div class="coords">Scroll at least 50% of the off-screen box into view.</div>
+                    <div class="coords"></div>
                 </div>
             </footer>
         </article>
         
 
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="jquery-viewable-min.js"></script>
+        <script src="jquery.viewable.min.js"></script>
         <script>
-
             /**
-             * Define callback function.
+             * Define callback function, which is called for each element being tracked.
              */
-            var onCheckIsViewable = function(result) {
+            var onCheckIsViewable = function(event, result) {
                 var minQualifyingAreaPercentage = 50,
                     isViewable = result.viewableAreaPercentage > minQualifyingAreaPercentage && result.viewableWidthPercentage > 0 && result.viewableHeightPercentage > 0,
-                    $e = result.$element,
+                    $e = $(event.currentTarget),
                     elementWidth = $e.width(),
                     elementHeight = $e.height(),
                     elementArea = elementWidth * elementHeight;
 
-                $e.find(".coords").html("viewable Width: " + result.viewableWidth + "/" + elementWidth + " (" + result.viewableWidthPercentage + "%)<br>viewable Height: " + result.viewableHeight + "/" + elementHeight + " (" + result.viewableHeightPercentage + "%)<br>viewable Area: " + result.viewableArea + "/" + elementArea + " (" + result.viewableAreaPercentage + "%)");
-
-                
-                if (isViewable === true) {
+                // Do something with the results.
+                $e.find(".coords").html("viewable Width: " + Math.round(result.viewableWidth) + "/" + elementWidth + " (" + result.viewableWidthPercentage + "%)<br>viewable Height: " + Math.round(result.viewableHeight) + "/" + elementHeight + " (" + result.viewableHeightPercentage + "%)<br>viewable Area: " + Math.round(result.viewableArea) + "/" + elementArea + " (" + result.viewableAreaPercentage + "%)");
+                if (isViewable) {
                     $e.css("background-color", "rgba(0, 200, 0, .5)");
                 } else {
                     $e.css("background-color", "rgba(200, 0, 0, .5)");
