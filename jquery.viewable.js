@@ -22,7 +22,7 @@ $.fn.viewable = function(next, scope) {
 
         (function($e) {
             $e.on("view", function(event) {
-                next(event, calculateHowViewable($(this), scope));
+                next(event, measureViewability($(this), scope));
             });
 
             $(scope).on("scroll", function() {
@@ -35,7 +35,7 @@ $.fn.viewable = function(next, scope) {
         })($e);
     });
 
-    function calculateHowViewable($e, scope) {
+    function measureViewability($e, scope) {
         var result,
             wW = $(scope).width(),
             wH = $(scope).height(),
