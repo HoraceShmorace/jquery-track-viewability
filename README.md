@@ -27,4 +27,4 @@ $("#my-element").viewable(false);
   - **viewableWidthPercentage** {*Number*} Between 0  -100
   - **viewableHeight** {*Number*} In pixels
   - **viewableHeightPercentage** {*Number*} Between 0  -100
-- **scope** {*jQuery Object* || *HTMLElement* || *String*} Optional. A reference to the element that's scrolling. This is experimental, and using anything other than `window` is so far entirely untested. You can safely omit this, and `window` will be used by default.
+
