@@ -20,7 +20,7 @@ $("#my-element").viewable(false);
 ```
 
 ## Arguments
-- **next** {*Function* || *false*} Required. Either a callback function to execute for each element, or *false*, which will stop an previously tracked element from having its viewability tracked. When the callback is called, it receives one argument (an Object) with the following properties:
+- **next** {*Function* || *false*} Required. Either a callback function to execute for each element, or *false*, which will stop a previously tracked element from having its viewability tracked. When the callback is called, it receives one argument (an Object) with the following properties:
   - **viewableArea** {*Number*} In pixels
   - **viewableAreaPercentage** {*Number*} Between 0  -100
   - **viewableWidth** {*Number*} In pixels
