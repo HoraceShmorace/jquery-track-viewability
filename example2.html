@@ -114,11 +114,11 @@
             /**
              * Define callback function, which is called for each element being tracked.
              */
-            var onCheckIsViewable = function(event, result) {
-                var minQualifyingAreaPercentage = 10,
-                    isViewable = result.viewableAreaPercentage > minQualifyingAreaPercentage && result.viewableWidthPercentage > 0 && result.viewableHeightPercentage > 0,
+            var onCheckIsViewable = function(event, measurements) {
+                var minQualifyingAreaPercentage = 50,
+                    viewable = measurements.viewable,
+                    isViewable = viewable.areaPercentage > minQualifyingAreaPercentage && viewable.widthPercentage > 0 && viewable.heightPercentage > 0;
                     $e = $(event.currentTarget);
-
                 if (!isViewable) return;
                             
                 // Fire ad here.

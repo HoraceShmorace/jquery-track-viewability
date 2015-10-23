@@ -114,16 +114,18 @@
             /**
              * Define callback function, which is called for each element being tracked.
              */
-            var onCheckIsViewable = function(event, result) {
+            var onCheckIsViewable = function(event, measurements) {
                 var minQualifyingAreaPercentage = 50,
-                    isViewable = result.viewableAreaPercentage > minQualifyingAreaPercentage && result.viewableWidthPercentage > 0 && result.viewableHeightPercentage > 0,
+                    viewable = measurements.viewable,
+                    element = measurements.element,
+                    isViewable = viewable.areaPercentage > minQualifyingAreaPercentage && viewable.widthPercentage > 0 && viewable.heightPercentage > 0,
                     $e = $(event.currentTarget),
-                    elementWidth = $e.width(),
-                    elementHeight = $e.height(),
+                    elementWidth = element.width,
+                    elementHeight = element.height,
                     elementArea = elementWidth * elementHeight;
 
-                // Do something with the results.
-                $e.find(".coords").html("viewable Width: " + Math.round(result.viewableWidth) + "/" + elementWidth + " (" + result.viewableWidthPercentage + "%)<br>viewable Height: " + Math.round(result.viewableHeight) + "/" + elementHeight + " (" + result.viewableHeightPercentage + "%)<br>viewable Area: " + Math.round(result.viewableArea) + "/" + elementArea + " (" + result.viewableAreaPercentage + "%)");
+                // Do something with the measurementss.
+                $e.find(".coords").html("viewable Width: " + Math.round(viewable.width) + "/" + elementWidth + " (" + viewable.widthPercentage + "%)<br>viewable Height: " + Math.round(viewable.height) + "/" + elementHeight + " (" + viewable.heightPercentage + "%)<br>viewable Area: " + Math.round(viewable.area) + "/" + elementArea + " (" + viewable.areaPercentage + "%)");
                 if (isViewable) {
                     $e.css("background-color", "rgba(0, 200, 0, .5)");
                 } else {

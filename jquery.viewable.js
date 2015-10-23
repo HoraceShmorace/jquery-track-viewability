@@ -36,34 +36,34 @@ $.fn.viewable = function(next, scope) {
     });
 
     function measureViewability($e, scope) {
-        var result,
+        var measurements,
             wW = $(scope).width(),
             wH = $(scope).height(),
-            sT = $(scope).scrollTop(),
-            sL = $(scope).scrollLeft(),
-            sB = wH + sT,
-            sR = wW + sL,
-            eT = $e.offset().top,
-            eL = $e.offset().left,
-            eH = $e.height(),
-            eW = $e.width(),
+            eR = $e[0].getBoundingClientRect(),
+            eT = eR.top,
+            eL = eR.left,
+            eH = eR.height,
+            eW = eR.width,
             eA = eH * eW,
-            vW = sL < eL ? Math.min(Math.max(sR - eL, 0), eW) : Math.max(eW - (sL - eL), 0),
-            vWP = Math.round(vW / eW * 1000) / 10,
-            vH = sT < eT ? Math.min(Math.max(sB - eT, 0), eH) : Math.max(eH - (sT - eT), 0),
-            vHP = Math.round(vH / eH * 1000) / 10,
+            vH = Math.min(Math.max(eT > 0 ? wH - eT : eH + eT, 0), eH),
+            vW = Math.min(Math.max(eL > 0 ? wW - eL : eW + eL, 0), eW),
+            vWP = Math.round(vW / eW * 100),
+            vHP = Math.round(vH / eH * 100),
             vA = vW * vH,
-            vAP = Math.round(vA / eA * 1000) / 10;
+            vAP = Math.round(vA / eA * 100);
 
-        result = {
-            viewableArea: vA,
-            viewableAreaPercentage: vAP,
-            viewableWidth: vW,
-            viewableWidthPercentage: vWP,
-            viewableHeight: vH,
-            viewableHeightPercentage: vHP
+        measurements = {
+            element: eR,
+            viewable: {
+                area: vA,
+                areaPercentage: vAP,
+                width: vW,
+                widthPercentage: vWP,
+                height: vH,
+                heightPercentage: vHP
+            }
         };
 
-        return result;
+        return measurements;
     };
 };
