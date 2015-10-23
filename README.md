@@ -20,13 +20,21 @@ $("#my-element").viewable(false);
 ```
 
 ## Arguments
-- **next** {*Function* || *false*} Required. Either a callback function to execute for each element, or *false*, which will stop a previously tracked element from having its viewability tracked. When the callback is called, it receives one argument (an Object) with the following properties:
-  - **viewableArea** {*Number*} In pixels
-  - **viewableAreaPercentage** {*Number*} Between 0  -100
-  - **viewableWidth** {*Number*} In pixels
-  - **viewableWidthPercentage** {*Number*} Between 0  -100
-  - **viewableHeight** {*Number*} In pixels
-  - **viewableHeightPercentage** {*Number*} Between 0  -100
+- **next** {*Function* || *false*} Required. Either a callback function to execute for each element, or *false*, which will stop a previously tracked element from having its viewability tracked. When the callback is called, it receives one argument (the ***measurements*** Object) with the following properties:
+  - **element**
+    - **top** {*Number*} Relative position, in pixels
+    - **right** {*Number*} Relative position, in pixels
+    - **bottom** {*Number*} Relative position, in pixels
+    - **left** {*Number*} Relative position, in pixels
+    - **height** {*Number*} In pixels
+    - **width** {*Number*} In pixels
+  - **viewable**
+    - **area** {*Number*} In pixels
+    - **areaPercentage** {*Number*} Between 0  -100
+    - **width** {*Number*} In pixels
+    - **widthPercentage** {*Number*} Between 0  -100
+    - **height** {*Number*} In pixels
+    - **heightPercentage** {*Number*} Between 0  -100
 
 ## TODO
 - Add support for tracking viewability when elements scroll within elements other than `window`.
