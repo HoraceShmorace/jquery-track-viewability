@@ -37,5 +37,6 @@ $("#my-element").viewable(false);
     - **heightPercentage** {*Number*} Between 0  -100
 
 ## TODO
+- Switch to requestAnimationFrame instead of window.scroll.
 - Add support for tracking viewability when elements scroll within elements other than `window`.
 - Add unit tests.
